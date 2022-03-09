@@ -1,0 +1,42 @@
+<section class="row">
+  <section class="col">
+    <section class="row mb-2">
+      <h1>Editoriales</h1>
+    </section>
+    <section class="row mb-2">
+      <section class="col-6 offset-6" style="display: flex;justify-content: flex-end;">
+        <a [routerLink]="'/addeditorials'" class="btn btn-success">Agregar editorial</a>
+      </section>
+    </section>
+    <section class="row">
+      <section class="col">
+        <table class="table">
+          <caption>Lista de editoriales</caption>
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Dirección correcpondencia</th>
+              <th scope="col">Teléfono</th>
+              <th scope="col">Correo electrónico</th>
+              <th scope="col">Máximo de libros</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of editorialsList">
+              <th scope="row">{{item.id}}</th>
+              <td>{{item.name}}</td>
+              <td>{{item.correspondenceAddress }}</td>
+              <td>{{item.phone}}</td>
+              <td>{{item.email}}</td>
+              <td>{{item.maxBooks}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </section>
+    <section class="row">
+      <a [routerLink]="'/'" class="btn btn-success">Regresar</a>
+    </section>
+  </section>
+</section>

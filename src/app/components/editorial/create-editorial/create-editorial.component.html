@@ -1,0 +1,54 @@
+<form (keydown.enter)="$event.preventDefault()" [formGroup]="form" (ngSubmit)="administrateEditorial(form.value)">
+
+  <div class="form-row">
+    <h2 class="titleseccion">Crear Editorial</h2>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="name">Nombre*</label>
+      <input type="text" class="form-control" maxlength="50" placeholder="Ingrese el nombre" id="name"
+        formControlName="name">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="phone">Teléfono*</label>
+      <input type="text" class="form-control" maxlength="10" placeholder="Ingresé el número telefónico" id="phone"
+        formControlName="phone">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="maxBooks">Máximo de libros permitidos</label>
+      <input type="number" class="form-control" maxlength="3" placeholder="Ingrese la cantidad de libros permitidos"
+        id="maxBooks" formControlName="maxBooks">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="email">Correo electrónico*</label>
+      <input type="email" class="form-control" maxlength="100" id="email" placeholder="Ingrese el correo"
+        formControlName="email">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="correspondenceAddress">Dirección de correspondencia*</label>
+      <input type="text" class="form-control" maxlength="100" id="correspondenceAddress" placeholder="Ingrese el correo"
+        formControlName="correspondenceAddress">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <button tabindex="1" [routerLink]="['/editorials']" type="button" routerLinkActive="router-link-active"
+        id="btnAtras" class="btn btn-primary">Regresar</button>
+    </div>
+    <div class="form-group col-md-2">
+      <button tabindex="1" [disabled]="form.invalid" type="submit" style="width: 170px;"
+        class="btn btn-success">Guardar</button>
+    </div>
+
+    <div class="form-group col-md-2">
+      <p style="color: red;">{{messageResponse}}</p>
+    </div>
+
+  </div>
+
+</form>

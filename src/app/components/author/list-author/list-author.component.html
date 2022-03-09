@@ -1,0 +1,40 @@
+<section class="row">
+  <section class="col">
+    <section class="row mb-2">
+      <h1>Autores</h1>
+    </section>
+    <section class="row mb-2">
+      <section class="col-6 offset-6" style="display: flex;justify-content: flex-end;">
+        <a [routerLink]="'/addauthor'" class="btn btn-success">Agregar autor</a>
+      </section>
+    </section>
+    <section class="row">
+      <section class="col">
+        <table class="table">
+          <caption>Lista de autores</caption>
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Fecha de nacimiento</th>
+              <th scope="col">Ciudad de orígen</th>
+              <th scope="col">Correo electrónico</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of authorsList">
+              <th scope="row">{{item.id}}</th>
+              <td>{{item.fullName}}</td>
+              <td>{{item.birthdate | date: 'dd-MM-yyyy'}}</td>
+              <td>{{item.originCity}}</td>
+              <td>{{item.email}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </section>
+    <section class="row">
+      <a [routerLink]="'/'" class="btn btn-success">Regresar</a>
+    </section>
+  </section>
+</section>

@@ -1,0 +1,54 @@
+<section class="row">
+  <section class="col">
+    <section class="row mb-2">
+      <h1>Libros</h1>
+     </section>
+    <section class="row mb-2">
+      <section class="col-6" style="display: flex;justify-content: flex-start;">
+        <select class="form-select" aria-label="selec_search" (change)="onSelectChange($event.target.value)">
+          <option selected>Buscar libro por:</option>
+          <option value="title">Título</option>
+          <option value="year">Año</option>
+          <option value="author">Autor</option>
+        </select>
+        <input type="text" name="search" id="search" class="form-control"
+          placeholder="Buscar libro por {{searchType}}" (keyup)="onSearch($event.target.value)">
+      </section>
+      <section class="col-6" style="display: flex;justify-content: flex-end;">
+        <a [routerLink]="'/addbook'" class="btn btn-success">Agregar Nuevo Libro</a>
+      </section>
+    </section>
+    <section class="row">
+      <section class="col">
+        <table class="table">
+          <caption>Lista de libros registrados</caption>
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Título</th>
+              <th scope="col">Género</th>
+              <th scope="col">Páginas</th>
+              <th scope="col">Año</th>
+              <th scope="col">Autor</th>
+              <th scope="col">Editorial</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of bookList">
+              <th scope="row">{{item.id}}</th>
+              <td>{{item.title}}</td>
+              <td>{{item.genre}}</td>
+              <td>{{item.pagesNumber}}</td>
+              <td>{{item.year}}</td>
+              <td>{{item.author.fullName}}</td>
+              <td>{{item.editorial.name}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </section>
+    <section class="row">
+      <a [routerLink]="'/'" class="btn btn-success">Regresar</a>
+    </section>
+  </section>
+</section>
