@@ -5,6 +5,7 @@ import { AuthorRoutingModule } from './author-routing.module';
 import { CreateAuthorComponent } from './create-author/create-author.component';
 import { ListAuthorComponent } from './list-author/list-author.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    NgxSkeletonLoaderModule,
     AuthorRoutingModule
   ]
 })

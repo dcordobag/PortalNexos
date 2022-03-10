@@ -8,9 +8,9 @@ import { EditorialResponse } from 'src/app/models/Editorial';
   templateUrl: './list-editorial.component.html',
   styleUrls: ['./list-editorial.component.css']
 })
-export class ListEditorialComponent  implements OnInit {
+export class ListEditorialComponent implements OnInit {
   editorialsList: Editorial[] = [];
-
+  lodaing = true;
   constructor(readonly editorialService: EditorialService) { }
 
   ngOnInit(): void {
@@ -20,6 +20,9 @@ export class ListEditorialComponent  implements OnInit {
   getEditorialsList() {
     this.editorialService.getEditorials().subscribe((data: EditorialResponse) => {
       this.editorialsList = data.data;
-    });
+      this.lodaing = false;
+    }, (err => {
+      this.lodaing = false;
+    }));
   }
 }

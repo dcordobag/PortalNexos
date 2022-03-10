@@ -9,7 +9,7 @@ import { Author, AuthorResponse } from 'src/app/models/Author';
 })
 export class ListAuthorComponent implements OnInit {
   authorsList: Author[] = [];
-
+  lodaing = true;
   constructor(readonly authorService: AuthorService) { }
 
   ngOnInit(): void {
@@ -19,6 +19,9 @@ export class ListAuthorComponent implements OnInit {
   getAuthorsList() {
     this.authorService.getAuthors().subscribe((data: AuthorResponse) => {
       this.authorsList = data.data;
-    });
+      this.lodaing = false;
+    }, (err => {
+      this.lodaing = false;
+    }));
   }
 }

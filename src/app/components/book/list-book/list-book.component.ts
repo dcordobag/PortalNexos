@@ -11,6 +11,7 @@ export class ListBookComponent implements OnInit {
   bookList: Book[] = [];
   searchType = 'título';
   selectedSearchType: string = '';
+  lodaing = true;
 
   constructor(readonly bookService: BookService) { }
 
@@ -21,7 +22,10 @@ export class ListBookComponent implements OnInit {
   getBookList() {
     this.bookService.getBooks().subscribe((data: BookResponse) => {
       this.bookList = data.data;
-    });
+      this.lodaing = false;
+    }, (err => {
+      this.lodaing = false;
+    }));
   }
 
   onSelectChange($event: string) {
@@ -39,7 +43,10 @@ export class ListBookComponent implements OnInit {
         if (makeRequest && valueToSearch) {
           this.bookService.getBooksByTitle(valueToSearch).subscribe((data: BookResponse) => {
             this.bookList = data.data;
-          });
+            this.lodaing = false;
+          }, (err => {
+            this.lodaing = false;
+          }));
         } else {
           this.getBookList();
         }
@@ -49,7 +56,10 @@ export class ListBookComponent implements OnInit {
         if (makeRequest && valueToSearch) {
           this.bookService.getBooksByYear(valueToSearch).subscribe((data: BookResponse) => {
             this.bookList = data.data;
-          });
+            this.lodaing = false;
+          }, (err => {
+            this.lodaing = false;
+          }));
         } else {
           this.getBookList();
         }
@@ -59,7 +69,10 @@ export class ListBookComponent implements OnInit {
         if (makeRequest && valueToSearch) {
           this.bookService.getBooksByAuthor(valueToSearch).subscribe((data: BookResponse) => {
             this.bookList = data.data;
-          });
+            this.lodaing = false;
+          }, (err => {
+            this.lodaing = false;
+          }));
         } else {
           this.getBookList();
         }

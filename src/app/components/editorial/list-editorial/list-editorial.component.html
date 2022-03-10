@@ -10,7 +10,8 @@
     </section>
     <section class="row">
       <section class="col">
-        <table class="table">
+        <ngx-skeleton-loader count="5" *ngIf="lodaing" appearance="line"></ngx-skeleton-loader>
+        <table class="table" *ngIf="!lodaing">
           <caption>Lista de editoriales</caption>
           <thead>
             <tr>

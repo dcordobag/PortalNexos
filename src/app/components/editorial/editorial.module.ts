@@ -5,6 +5,7 @@ import { EditorialRoutingModule } from './editorial-routing.module';
 import { ListEditorialComponent } from './list-editorial/list-editorial.component';
 import { CreateEditorialComponent } from './create-editorial/create-editorial.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    NgxSkeletonLoaderModule,
     EditorialRoutingModule
   ]
 })
