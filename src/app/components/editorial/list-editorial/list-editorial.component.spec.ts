@@ -1,4 +1,6 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { ListEditorialComponent } from './list-editorial.component';
 
@@ -8,9 +10,10 @@ describe('ListEditorialComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListEditorialComponent ]
+      imports: [HttpClientModule, ReactiveFormsModule],
+      declarations: [ListEditorialComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

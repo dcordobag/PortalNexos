@@ -5,19 +5,19 @@ export interface BookResponse {
 }
 
 export interface Book {
-  id: number
+  id?: number
   title: string
   year: string
   genre: string
   pagesNumber: number
   editorialID: number
   authorID: number
-  editorial: Editorial
-  author: Author
+  editorial?: Editorial
+  author?: Author
 }
 
 export interface Editorial {
-  id: number
+  id?: number
   name: string
   correspondenceAddress: string
   phone: string
@@ -26,7 +26,7 @@ export interface Editorial {
 }
 
 export interface Author {
-  id: number
+  id?: number
   fullName: string
   birthdate: string
   originCity: string
